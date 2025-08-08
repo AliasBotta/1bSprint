@@ -1,0 +1,4007 @@
+[
+  {
+    "name": "org.apache.stormcrawler.proxy.SingleProxyManagerTest.testSimpleProxyManager()",
+    "bSource": {
+      "startLine": 25,
+      "code": "@Test\n    void testSimpleProxyManager() throws RuntimeException {\n        Config config = new Config();\n        config.put(\"http.proxy.host\", \"example.com\");\n        config.put(\"http.proxy.type\", \"HTTP\");\n        config.put(\"http.proxy.port\", 8080);\n        config.put(\"http.proxy.user\", \"user1\");\n        config.put(\"http.proxy.pass\", \"pass1\");\n        SingleProxyManager pm = new SingleProxyManager();\n        pm.configure(config);\n        SCProxy proxy = pm.getProxy(null);\n        Assertions.assertEquals(proxy.getProtocol(), \"http\");\n        Assertions.assertEquals(proxy.getAddress(), \"example.com\");\n        Assertions.assertEquals(proxy.getPort(), \"8080\");\n        Assertions.assertEquals(proxy.getUsername(), \"user1\");\n        Assertions.assertEquals(proxy.getPassword(), \"pass1\");\n        Assertions.assertEquals(proxy.toString(), \"http://user1:pass1@example.com:8080\");\n    }"
+    },
+    "aSource": {
+      "startLine": 26,
+      "code": "@Test\n    void testSimpleProxyManager() throws RuntimeException {\n        Config config = new Config();\n        config.put(\"http.proxy.host\", \"example.com\");\n        config.put(\"http.proxy.type\", \"HTTP\");\n        config.put(\"http.proxy.port\", 8080);\n        config.put(\"http.proxy.user\", \"user1\");\n        config.put(\"http.proxy.pass\", \"pass1\");\n        SingleProxyManager pm = new SingleProxyManager();\n        pm.configure(config);\n        Optional<SCProxy> proxyOptional = pm.getProxy(null);\n        Assertions.assertTrue(proxyOptional.isPresent());\n        SCProxy proxy = proxyOptional.get();\n        Assertions.assertEquals(proxy.getProtocol(), \"http\");\n        Assertions.assertEquals(proxy.getAddress(), \"example.com\");\n        Assertions.assertEquals(proxy.getPort(), \"8080\");\n        Assertions.assertEquals(proxy.getUsername(), \"user1\");\n        Assertions.assertEquals(proxy.getPassword(), \"pass1\");\n        Assertions.assertEquals(proxy.toString(), \"http://user1:pass1@example.com:8080\");\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/proxy/SingleProxyManagerTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/proxy/SingleProxyManagerTest.java",
+    "bCommit": "3718fcb2",
+    "aCommit": "97efd536",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "SCProxy proxy = pm.getProxy(null);",
+          "type": "DELETE",
+          "lineNo": 35
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Optional<SCProxy> proxyOptional = pm.getProxy(null);",
+          "type": "ADD",
+          "lineNo": 36
+        },
+        {
+          "line": "Assertions.assertTrue(proxyOptional.isPresent());",
+          "type": "ADD",
+          "lineNo": 37
+        },
+        {
+          "line": "SCProxy proxy = proxyOptional.get();",
+          "type": "ADD",
+          "lineNo": 38
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "org.apache.stormcrawler.proxy.SCProxy proxy"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "org.apache.stormcrawler.proxy.SCProxy"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.proxy.SingleProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.proxy.SingleProxyManager pm"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.proxy.SingleProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "java.util.Optional proxyOptional"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.Optional"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "org.apache.stormcrawler.proxy.SCProxy"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.proxy.SingleProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.proxy.SingleProxyManager pm"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.proxy.SingleProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertTrue(boolean)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.jupiter.api.Assertions"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertTrue(boolean)"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.Optional.isPresent()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.Optional proxyOptional"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.Optional.isPresent()"
+        },
+        {
+          "type": "CtLocalVariable",
+          "value": "org.apache.stormcrawler.proxy.SCProxy proxy"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "org.apache.stormcrawler.proxy.SCProxy"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.Optional.get()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.Optional proxyOptional"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.Optional.get()"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "LocalVariable",
+        "parents": [
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "proxy",
+          "childCount": 2
+        },
+        "dstNode": {
+          "label": "proxyOptional",
+          "childCount": 2
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "VARIABLE_TYPE",
+        "parents": [
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "org.apache.stormcrawler.proxy.SCProxy",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "java.util.Optional",
+          "childCount": 1
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Invocation",
+        "parents": [
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "assertTrue",
+          "childCount": 2
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "LocalVariable",
+        "parents": [
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "proxy",
+          "childCount": 2
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        36
+      ]
+    },
+    "aCommitTime": 1750061663,
+    "ID": "apache/stormcrawler:8",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.parse.StackOverflowTest.testStackOverflow()",
+    "bSource": {
+      "startLine": 41,
+      "code": "@Test\n    void testStackOverflow() throws IOException {\n        prepareParserBolt(\"test.parsefilters.json\");\n        Metadata metadata = new Metadata();\n        parse(\"http://polloxniner.blogspot.com\", \"stackexception.html\", metadata);\n        Assertions.assertEquals(164, output.getEmitted(Constants.StatusStreamName).size());\n    }"
+    },
+    "aSource": {
+      "startLine": 41,
+      "code": "@Test\n    void testStackOverflow() throws IOException {\n        prepareParserBolt(\"test.parsefilters.json\");\n        Metadata metadata = new Metadata();\n        parse(\"http://stormcrawler.apache.org.com\", \"stackexception.html\", metadata);\n        Assertions.assertEquals(31, output.getEmitted(Constants.StatusStreamName).size());\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/parse/StackOverflowTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/parse/StackOverflowTest.java",
+    "bCommit": "1618a683",
+    "aCommit": "30f9e9d0",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://polloxniner.blogspot.com\", \"stackexception.html\", metadata);",
+          "type": "DELETE",
+          "lineNo": 45
+        },
+        {
+          "line": "Assertions.assertEquals(164, output.getEmitted(Constants.StatusStreamName).size());",
+          "type": "DELETE",
+          "lineNo": 46
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org.com\", \"stackexception.html\", metadata);",
+          "type": "ADD",
+          "lineNo": 45
+        },
+        {
+          "line": "Assertions.assertEquals(31, output.getEmitted(Constants.StatusStreamName).size());",
+          "type": "ADD",
+          "lineNo": 46
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://polloxniner.blogspot.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stackexception.html'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.Metadata metadata"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.jupiter.api.Assertions"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "int '164'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.size()"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "org.apache.stormcrawler.TestOutputCollector output"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.String StatusStreamName"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.apache.stormcrawler.Constants"
+        },
+        {
+          "type": "CtFieldReference",
+          "value": "java.lang.String StatusStreamName"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.size()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stackexception.html'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.Metadata metadata"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.jupiter.api.Assertions"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "int '31'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.size()"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "org.apache.stormcrawler.TestOutputCollector output"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.String StatusStreamName"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.apache.stormcrawler.Constants"
+        },
+        {
+          "type": "CtFieldReference",
+          "value": "java.lang.String StatusStreamName"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.size()"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://polloxniner.blogspot.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org.com\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "164",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "31",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        46
+      ]
+    },
+    "aCommitTime": 1733147464,
+    "ID": "apache/stormcrawler:6",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.filtering.FastURLFilterTest.testDomainNotAllowed()",
+    "bSource": {
+      "startLine": 49,
+      "code": "@Test\n    void testDomainNotAllowed() throws MalformedURLException {\n        URL url = new URL(\"http://stormcrawler.net/\");\n        Metadata metadata = new Metadata();\n        String filterResult = createFilter().filter(url, metadata, url.toExternalForm());\n        Assertions.assertEquals(null, filterResult);\n        // allowed\n        url = new URL(\"http://stormcrawler.net/digitalpebble/\");\n        filterResult = createFilter().filter(url, metadata, url.toExternalForm());\n        Assertions.assertEquals(url.toString(), filterResult);\n    }"
+    },
+    "aSource": {
+      "startLine": 49,
+      "code": "@Test\n    void testDomainNotAllowed() throws MalformedURLException {\n        URL url = new URL(\"http://stormcrawler.net/\");\n        Metadata metadata = new Metadata();\n        String filterResult = createFilter().filter(url, metadata, url.toExternalForm());\n        Assertions.assertEquals(null, filterResult);\n        // allowed\n        url = new URL(\"http://stormcrawler.net/bla/\");\n        filterResult = createFilter().filter(url, metadata, url.toExternalForm());\n        Assertions.assertEquals(url.toString(), filterResult);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/filtering/FastURLFilterTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/filtering/FastURLFilterTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "url = new URL(\"http://stormcrawler.net/digitalpebble/\");",
+          "type": "DELETE",
+          "lineNo": 56
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "url = new URL(\"http://stormcrawler.net/bla/\");",
+          "type": "ADD",
+          "lineNo": 56
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtVariableWrite",
+          "value": "java.net.URL url"
+        },
+        {
+          "type": "CtConstructorCall",
+          "value": "java.net.URL.URL(String)"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.net.URL"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.net/digitalpebble/'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtVariableWrite",
+          "value": "java.net.URL url"
+        },
+        {
+          "type": "CtConstructorCall",
+          "value": "java.net.URL.URL(String)"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.net.URL"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.net/bla/'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "ConstructorCall",
+          "Assignment",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://stormcrawler.net/digitalpebble/\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.net/bla/\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        58
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:10",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.json.JsoupFilterTest.testLDJsonExtraction()",
+    "bSource": {
+      "startLine": 45,
+      "code": "@Test\n    void testLDJsonExtraction() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String[] scripts = metadata.getValues(\"streetAddress\");\n        Assertions.assertNotNull(scripts);\n    }"
+    },
+    "aSource": {
+      "startLine": 45,
+      "code": "@Test\n    void testLDJsonExtraction() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String[] scripts = metadata.getValues(\"streetAddress\");\n        Assertions.assertNotNull(scripts);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/json/JsoupFilterTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/json/JsoupFilterTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 48
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 48
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        48
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:11",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.parse.filter.SubDocumentsFilterTest.testSitemapSubdocuments()",
+    "bSource": {
+      "startLine": 37,
+      "code": "@Test\n    void testSitemapSubdocuments() throws IOException {\n        Map config = new HashMap();\n        config.put(\"detect.mimetype\", false);\n        prepareParserBolt(\"test.subdocfilter.json\", config);\n        Metadata metadata = new Metadata();\n        parse(\"http://www.digitalpebble.com/sitemap.xml\", \"digitalpebble.sitemap.xml\", metadata);\n        Assertions.assertEquals(6, output.getEmitted().size());\n    }"
+    },
+    "aSource": {
+      "startLine": 37,
+      "code": "@Test\n    void testSitemapSubdocuments() throws IOException {\n        Map config = new HashMap();\n        config.put(\"detect.mimetype\", false);\n        prepareParserBolt(\"test.subdocfilter.json\", config);\n        Metadata metadata = new Metadata();\n        parse(\"http://stormcrawler.apache.org/sitemap.xml\", \"stormcrawler.sitemap.xml\", metadata);\n        Assertions.assertEquals(7, output.getEmitted().size());\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/parse/filter/SubDocumentsFilterTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/parse/filter/SubDocumentsFilterTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com/sitemap.xml\", \"digitalpebble.sitemap.xml\", metadata);",
+          "type": "DELETE",
+          "lineNo": 43
+        },
+        {
+          "line": "Assertions.assertEquals(6, output.getEmitted().size());",
+          "type": "DELETE",
+          "lineNo": 44
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org/sitemap.xml\", \"stormcrawler.sitemap.xml\", metadata);",
+          "type": "ADD",
+          "lineNo": 43
+        },
+        {
+          "line": "Assertions.assertEquals(7, output.getEmitted().size());",
+          "type": "ADD",
+          "lineNo": 44
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com/sitemap.xml'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.sitemap.xml'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.Metadata metadata"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.jupiter.api.Assertions"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "int '6'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.size()"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "org.apache.stormcrawler.TestOutputCollector output"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted()"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.size()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org/sitemap.xml'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.sitemap.xml'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.Metadata metadata"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.jupiter.api.Assertions"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "int '7'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.size()"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "org.apache.stormcrawler.TestOutputCollector output"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted()"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.size()"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com/sitemap.xml\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org/sitemap.xml\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.sitemap.xml\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.sitemap.xml\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "6",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "7",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        43
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:12",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.parse.filter.XPathFilterTest.testLDJsonExtraction()",
+    "bSource": {
+      "startLine": 67,
+      "code": "@Test\n    void testLDJsonExtraction() throws IOException {\n        prepareParserBolt(\"test.parsefilters.json\");\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String[] scripts = metadata.getValues(\"streetAddress\");\n        Assertions.assertNotNull(scripts);\n    }"
+    },
+    "aSource": {
+      "startLine": 67,
+      "code": "@Test\n    void testLDJsonExtraction() throws IOException {\n        prepareParserBolt(\"test.parsefilters.json\");\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String[] scripts = metadata.getValues(\"streetAddress\");\n        Assertions.assertNotNull(scripts);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/parse/filter/XPathFilterTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/parse/filter/XPathFilterTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 70
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 70
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        70
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:13",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.parse.filter.XPathFilterTest.testBasicExtraction()",
+    "bSource": {
+      "startLine": 36,
+      "code": "@Test\n    void testBasicExtraction() throws IOException {\n        prepareParserBolt(\"test.parsefilters.json\");\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String concept = metadata.getFirstValue(\"concept\");\n        Assertions.assertNotNull(concept);\n        concept = metadata.getFirstValue(\"concept2\");\n        Assertions.assertNotNull(concept);\n    }"
+    },
+    "aSource": {
+      "startLine": 36,
+      "code": "@Test\n    void testBasicExtraction() throws IOException {\n        prepareParserBolt(\"test.parsefilters.json\");\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String concept = metadata.getFirstValue(\"concept\");\n        Assertions.assertNotNull(concept);\n        concept = metadata.getFirstValue(\"concept2\");\n        Assertions.assertNotNull(concept);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/parse/filter/XPathFilterTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/parse/filter/XPathFilterTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 39
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 39
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        39
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:14",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.jsoup.JSoupFiltersTest.testBasicExtraction()",
+    "bSource": {
+      "startLine": 46,
+      "code": "@Test\n    void testBasicExtraction() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String concept = metadata.getFirstValue(\"concept\");\n        Assertions.assertNotNull(concept);\n        concept = metadata.getFirstValue(\"concept2\");\n        Assertions.assertNotNull(concept);\n    }"
+    },
+    "aSource": {
+      "startLine": 46,
+      "code": "@Test\n    void testBasicExtraction() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String concept = metadata.getFirstValue(\"concept\");\n        Assertions.assertNotNull(concept);\n        concept = metadata.getFirstValue(\"concept2\");\n        Assertions.assertNotNull(concept);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/jsoup/JSoupFiltersTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/jsoup/JSoupFiltersTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 49
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 49
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        49
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:15",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.jsoup.JSoupFiltersTest.testLDJsonExtraction()",
+    "bSource": {
+      "startLine": 77,
+      "code": "@Test\n    void testLDJsonExtraction() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String[] scripts = metadata.getValues(\"streetAddress\");\n        Assertions.assertNotNull(scripts);\n    }"
+    },
+    "aSource": {
+      "startLine": 77,
+      "code": "@Test\n    void testLDJsonExtraction() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Metadata metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        String[] scripts = metadata.getValues(\"streetAddress\");\n        Assertions.assertNotNull(scripts);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/jsoup/JSoupFiltersTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/jsoup/JSoupFiltersTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 80
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 80
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        80
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:16",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.jsoup.JSoupFiltersTest.testExtraLink()",
+    "bSource": {
+      "startLine": 89,
+      "code": "@Test\n    void testExtraLink() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        Assertions.assertEquals(16, output.getEmitted(\"status\").size());\n    }"
+    },
+    "aSource": {
+      "startLine": 89,
+      "code": "@Test\n    void testExtraLink() throws IOException {\n        prepareParserBolt(\"test.jsoupfilters.json\");\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        Assertions.assertEquals(31, output.getEmitted(\"status\").size());\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/jsoup/JSoupFiltersTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/jsoup/JSoupFiltersTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 92
+        },
+        {
+          "line": "Assertions.assertEquals(16, output.getEmitted(\"status\").size());",
+          "type": "DELETE",
+          "lineNo": 93
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 92
+        },
+        {
+          "line": "Assertions.assertEquals(31, output.getEmitted(\"status\").size());",
+          "type": "ADD",
+          "lineNo": 93
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.jupiter.api.Assertions"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "int '16'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.size()"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "org.apache.stormcrawler.TestOutputCollector output"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'status'"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.size()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.jupiter.api.Assertions"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(int,int)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "int '31'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.size()"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "org.apache.stormcrawler.TestOutputCollector output"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.TestOutputCollector.getEmitted(String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'status'"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.size()"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "16",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "31",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        92
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:17",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.bolt.JSoupParserBoltTest.testExecuteWithOutlinksLimit()",
+    "bSource": {
+      "startLine": 204,
+      "code": "@Test\n    void testExecuteWithOutlinksLimit() throws IOException {\n        stormConf.put(\"parser.emitOutlinks.max.per.page\", 5);\n        bolt.prepare(stormConf, TestUtil.getMockedTopologyContext(), new OutputCollector(output));\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        List<List<Object>> statusTuples = output.getEmitted(Constants.StatusStreamName);\n        // outlinks being limited by property\n        Assertions.assertEquals(5, statusTuples.size());\n    }"
+    },
+    "aSource": {
+      "startLine": 204,
+      "code": "@Test\n    void testExecuteWithOutlinksLimit() throws IOException {\n        stormConf.put(\"parser.emitOutlinks.max.per.page\", 5);\n        bolt.prepare(stormConf, TestUtil.getMockedTopologyContext(), new OutputCollector(output));\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        List<List<Object>> statusTuples = output.getEmitted(Constants.StatusStreamName);\n        // outlinks being limited by property\n        Assertions.assertEquals(5, statusTuples.size());\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/bolt/JSoupParserBoltTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/bolt/JSoupParserBoltTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 208
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 208
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        208
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:18",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.bolt.JSoupParserBoltTest.testNoScriptInText()",
+    "bSource": {
+      "startLine": 117,
+      "code": "@Test\n    /** Checks that content in script is not included in the text representation */\n    void testNoScriptInText() throws IOException {\n        bolt.prepare(\n                new HashMap(), TestUtil.getMockedTopologyContext(), new OutputCollector(output));\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n        List<Object> parsedTuple = output.getEmitted().remove(0);\n        // check in the metadata that the values match\n        String text = (String) parsedTuple.get(3);\n        Assertions.assertFalse(\n                text.contains(\"urchinTracker\"),\n                \"Text should not contain the content of script tags\");\n    }"
+    },
+    "aSource": {
+      "startLine": 117,
+      "code": "@Test\n    /** Checks that content in script is not included in the text representation */\n    void testNoScriptInText() throws IOException {\n        bolt.prepare(\n                new HashMap(), TestUtil.getMockedTopologyContext(), new OutputCollector(output));\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");\n        List<Object> parsedTuple = output.getEmitted().remove(0);\n        // check in the metadata that the values match\n        String text = (String) parsedTuple.get(3);\n        Assertions.assertFalse(\n                text.contains(\"urchinTracker\"),\n                \"Text should not contain the content of script tags\");\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/bolt/JSoupParserBoltTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/bolt/JSoupParserBoltTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");",
+          "type": "DELETE",
+          "lineNo": 122
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\");",
+          "type": "ADD",
+          "lineNo": 122
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        122
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:19",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.bolt.JSoupParserBoltTest.testHTTPRobots()",
+    "bSource": {
+      "startLine": 141,
+      "code": "@Test\n    void testHTTPRobots() throws IOException {\n        bolt.prepare(\n                new HashMap(), TestUtil.getMockedTopologyContext(), new OutputCollector(output));\n        Metadata metadata = new Metadata();\n        metadata.setValues(\"X-Robots-Tag\", new String[] {\"noindex\", \"nofollow\"});\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\", metadata);\n        List<List<Object>> statusTuples = output.getEmitted(Constants.StatusStreamName);\n        // no outlinks at all\n        Assertions.assertEquals(0, statusTuples.size());\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().remove(0);\n        // check in the metadata that the values match\n        metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        boolean isNoIndex =\n                Boolean.parseBoolean(metadata.getFirstValue(RobotsTags.ROBOTS_NO_INDEX));\n        boolean isNoFollow =\n                Boolean.parseBoolean(metadata.getFirstValue(RobotsTags.ROBOTS_NO_FOLLOW));\n        boolean isNoCache =\n                Boolean.parseBoolean(metadata.getFirstValue(RobotsTags.ROBOTS_NO_CACHE));\n        Assertions.assertEquals(true, isNoIndex, \"incorrect noIndex\");\n        Assertions.assertEquals(true, isNoFollow, \"incorrect noFollow\");\n        Assertions.assertEquals(false, isNoCache, \"incorrect noCache\");\n    }"
+    },
+    "aSource": {
+      "startLine": 141,
+      "code": "@Test\n    void testHTTPRobots() throws IOException {\n        bolt.prepare(\n                new HashMap(), TestUtil.getMockedTopologyContext(), new OutputCollector(output));\n        Metadata metadata = new Metadata();\n        metadata.setValues(\"X-Robots-Tag\", new String[] {\"noindex\", \"nofollow\"});\n        parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\", metadata);\n        List<List<Object>> statusTuples = output.getEmitted(Constants.StatusStreamName);\n        // no outlinks at all\n        Assertions.assertEquals(0, statusTuples.size());\n        Assertions.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().remove(0);\n        // check in the metadata that the values match\n        metadata = (Metadata) parsedTuple.get(2);\n        Assertions.assertNotNull(metadata);\n        boolean isNoIndex =\n                Boolean.parseBoolean(metadata.getFirstValue(RobotsTags.ROBOTS_NO_INDEX));\n        boolean isNoFollow =\n                Boolean.parseBoolean(metadata.getFirstValue(RobotsTags.ROBOTS_NO_FOLLOW));\n        boolean isNoCache =\n                Boolean.parseBoolean(metadata.getFirstValue(RobotsTags.ROBOTS_NO_CACHE));\n        Assertions.assertEquals(true, isNoIndex, \"incorrect noIndex\");\n        Assertions.assertEquals(true, isNoFollow, \"incorrect noFollow\");\n        Assertions.assertEquals(false, isNoCache, \"incorrect noCache\");\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/bolt/JSoupParserBoltTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/bolt/JSoupParserBoltTest.java",
+    "bCommit": "5ce90061",
+    "aCommit": "94bfadc3",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\", metadata);",
+          "type": "DELETE",
+          "lineNo": 147
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "parse(\"http://stormcrawler.apache.org\", \"stormcrawler.apache.org.html\", metadata);",
+          "type": "ADD",
+          "lineNo": 147
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.digitalpebble.com'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'digitalpebble.com.html'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.Metadata metadata"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "org.apache.stormcrawler.parse.ParsingTester.parse(String,String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://stormcrawler.apache.org'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'stormcrawler.apache.org.html'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.apache.stormcrawler.Metadata metadata"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"http://www.digitalpebble.com\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"http://stormcrawler.apache.org\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"digitalpebble.com.html\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"stormcrawler.apache.org.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        147
+      ]
+    },
+    "aCommitTime": 1732296370,
+    "ID": "apache/stormcrawler:20",
+    "trivial": null
+  },
+  {
+    "name": "org.apache.stormcrawler.util.InitialisationUtilTest.can_initialize_an_inherited_class_as_abstract_and_check_for_interface()",
+    "bSource": {
+      "startLine": 55,
+      "code": "@Test\n    public void can_initialize_an_inherited_class_as_abstract_and_check_for_interface() {\n        final AbstractClass abstractClass =\n                InitialisationUtil.initializeFromQualifiedName(\n                        ClassInheritingFomAbstractAndInterface.class.getName(),\n                        AbstractClass.class,\n                        ITestInterface.class);\n    }"
+    },
+    "aSource": {
+      "startLine": 55,
+      "code": "@Test\n    public void can_initialize_an_inherited_class_as_abstract_and_check_for_interface() {\n        final AbstractClass abstractClass =\n                InitialisationUtil.initializeFromQualifiedName(\n                        ClassInheritingFromAbstractAndInterface.class.getName(),\n                        AbstractClass.class,\n                        ITestInterface.class);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/util/InitialisationUtilTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/util/InitialisationUtilTest.java",
+    "bCommit": "9e8d89f3",
+    "aCommit": "bf87568f",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "ClassInheritingFomAbstractAndInterface.class.getName(),",
+          "type": "DELETE",
+          "lineNo": 59
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "ClassInheritingFromAbstractAndInterface.class.getName(),",
+          "type": "ADD",
+          "lineNo": 59
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "java.lang.Class.getName()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.Class class"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.lang.Class.getName()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "java.lang.Class.getName()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.Class class"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.lang.Class.getName()"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "TypeAccess",
+        "parents": [
+          "FieldRead",
+          "Invocation",
+          "Invocation",
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "org.apache.stormcrawler.util.ClassInheritingFomAbstractAndInterface",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "org.apache.stormcrawler.util.ClassInheritingFromAbstractAndInterface",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        59
+      ]
+    },
+    "aCommitTime": 1716295065,
+    "ID": "apache/stormcrawler:21",
+    "trivial": [
+      "RENAME_CLASS"
+    ]
+  },
+  {
+    "name": "org.apache.stormcrawler.util.InitialisationUtilTest.can_initialize_an_inherited_class_as_abstract()",
+    "bSource": {
+      "startLine": 32,
+      "code": "@Test\n    public void can_initialize_an_inherited_class_as_abstract() {\n        final AbstractClass abstractClass =\n                InitialisationUtil.initializeFromQualifiedName(\n                        ClassInheritingFomAbstractAndInterface.class.getName(),\n                        AbstractClass.class);\n    }"
+    },
+    "aSource": {
+      "startLine": 32,
+      "code": "@Test\n    public void can_initialize_an_inherited_class_as_abstract() {\n        final AbstractClass abstractClass =\n                InitialisationUtil.initializeFromQualifiedName(\n                        ClassInheritingFromAbstractAndInterface.class.getName(),\n                        AbstractClass.class);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/util/InitialisationUtilTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/util/InitialisationUtilTest.java",
+    "bCommit": "9e8d89f3",
+    "aCommit": "bf87568f",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "ClassInheritingFomAbstractAndInterface.class.getName(),",
+          "type": "DELETE",
+          "lineNo": 36
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "ClassInheritingFromAbstractAndInterface.class.getName(),",
+          "type": "ADD",
+          "lineNo": 36
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "java.lang.Class.getName()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.Class class"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.lang.Class.getName()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "java.lang.Class.getName()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.Class class"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.lang.Class.getName()"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "TypeAccess",
+        "parents": [
+          "FieldRead",
+          "Invocation",
+          "Invocation",
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "org.apache.stormcrawler.util.ClassInheritingFomAbstractAndInterface",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "org.apache.stormcrawler.util.ClassInheritingFromAbstractAndInterface",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        36
+      ]
+    },
+    "aCommitTime": 1716295065,
+    "ID": "apache/stormcrawler:22",
+    "trivial": [
+      "RENAME_CLASS"
+    ]
+  },
+  {
+    "name": "org.apache.stormcrawler.util.InitialisationUtilTest.can_initialize_an_inherited_class_as_interface()",
+    "bSource": {
+      "startLine": 40,
+      "code": "@Test\n    public void can_initialize_an_inherited_class_as_interface() {\n        final ITestInterface testInterface =\n                InitialisationUtil.initializeFromQualifiedName(\n                        ClassInheritingFomAbstractAndInterface.class.getName(),\n                        ITestInterface.class);\n    }"
+    },
+    "aSource": {
+      "startLine": 40,
+      "code": "@Test\n    public void can_initialize_an_inherited_class_as_interface() {\n        final ITestInterface testInterface =\n                InitialisationUtil.initializeFromQualifiedName(\n                        ClassInheritingFromAbstractAndInterface.class.getName(),\n                        ITestInterface.class);\n    }"
+    },
+    "bPath": "core/src/test/java/org/apache/stormcrawler/util/InitialisationUtilTest.java",
+    "aPath": "core/src/test/java/org/apache/stormcrawler/util/InitialisationUtilTest.java",
+    "bCommit": "9e8d89f3",
+    "aCommit": "bf87568f",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "ClassInheritingFomAbstractAndInterface.class.getName(),",
+          "type": "DELETE",
+          "lineNo": 44
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "ClassInheritingFromAbstractAndInterface.class.getName(),",
+          "type": "ADD",
+          "lineNo": 44
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "java.lang.Class.getName()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.Class class"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.lang.Class.getName()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "java.lang.Class.getName()"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.lang.Class class"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.lang.Class.getName()"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "TypeAccess",
+        "parents": [
+          "FieldRead",
+          "Invocation",
+          "Invocation",
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "org.apache.stormcrawler.util.ClassInheritingFomAbstractAndInterface",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "org.apache.stormcrawler.util.ClassInheritingFromAbstractAndInterface",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        44
+      ]
+    },
+    "aCommitTime": 1716295065,
+    "ID": "apache/stormcrawler:23",
+    "trivial": [
+      "RENAME_CLASS"
+    ]
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.filtering.MaxDepthFilterTest.testDepthZero()",
+    "bSource": {
+      "startLine": 40,
+      "code": "@Test\n    public void testDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 0);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(url.toExternalForm(), filterResult);\n    }"
+    },
+    "aSource": {
+      "startLine": 40,
+      "code": "@Test\n    public void testDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 0);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(null, filterResult);\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "bCommit": "475daa49",
+    "aCommit": "c7243e51",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "Assert.assertEquals(url.toExternalForm(), filterResult);",
+          "type": "DELETE",
+          "lineNo": 46
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Assert.assertEquals(null, filterResult);",
+          "type": "ADD",
+          "lineNo": 46
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.net.URL url"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Delete",
+        "nodeType": "Invocation",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "toExternalForm",
+          "childCount": 1
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "null",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        46
+      ]
+    },
+    "aCommitTime": 1667405095,
+    "ID": "apache/stormcrawler:24",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.filtering.MaxDepthFilterTest.testCustomDepthZero()",
+    "bSource": {
+      "startLine": 59,
+      "code": "@Test\n    public void testCustomDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 3);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        metadata.setValue(MetadataTransfer.maxDepthKeyName, \"0\");\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(url.toExternalForm(), filterResult);\n    }"
+    },
+    "aSource": {
+      "startLine": 59,
+      "code": "@Test\n    public void testCustomDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 3);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        metadata.setValue(MetadataTransfer.maxDepthKeyName, \"0\");\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(null, filterResult);\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "bCommit": "475daa49",
+    "aCommit": "c7243e51",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "Assert.assertEquals(url.toExternalForm(), filterResult);",
+          "type": "DELETE",
+          "lineNo": 66
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Assert.assertEquals(null, filterResult);",
+          "type": "ADD",
+          "lineNo": 66
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.net.URL url"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Delete",
+        "nodeType": "Invocation",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "toExternalForm",
+          "childCount": 1
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "null",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        66
+      ]
+    },
+    "aCommitTime": 1667405095,
+    "ID": "apache/stormcrawler:25",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.filtering.MaxDepthFilterTest.testDepthZero()",
+    "bSource": {
+      "startLine": 40,
+      "code": "@Test\n    public void testDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 0);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(null, filterResult);\n    }"
+    },
+    "aSource": {
+      "startLine": 40,
+      "code": "@Test\n    public void testDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 0);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(url.toExternalForm(), filterResult);\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "bCommit": "82f6b978",
+    "aCommit": "d91f6c67",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "Assert.assertEquals(null, filterResult);",
+          "type": "DELETE",
+          "lineNo": 46
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Assert.assertEquals(url.toExternalForm(), filterResult);",
+          "type": "ADD",
+          "lineNo": 46
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.net.URL url"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Delete",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "null",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Invocation",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "toExternalForm",
+          "childCount": 1
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        46
+      ]
+    },
+    "aCommitTime": 1648461804,
+    "ID": "apache/stormcrawler:27",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.filtering.MaxDepthFilterTest.testCustomDepthZero()",
+    "bSource": {
+      "startLine": 59,
+      "code": "@Test\n    public void testCustomDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 3);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        metadata.setValue(MetadataTransfer.maxDepthKeyName, \"0\");\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(null, filterResult);\n    }"
+    },
+    "aSource": {
+      "startLine": 59,
+      "code": "@Test\n    public void testCustomDepthZero() throws MalformedURLException {\n        URLFilter filter = createFilter(\"maxDepth\", 3);\n        URL url = new URL(\"http://www.sourcedomain.com/\");\n        Metadata metadata = new Metadata();\n        metadata.setValue(MetadataTransfer.maxDepthKeyName, \"0\");\n        String filterResult = filter.filter(url, metadata, url.toExternalForm());\n        Assert.assertEquals(url.toExternalForm(), filterResult);\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/filtering/MaxDepthFilterTest.java",
+    "bCommit": "82f6b978",
+    "aCommit": "d91f6c67",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "Assert.assertEquals(null, filterResult);",
+          "type": "DELETE",
+          "lineNo": 66
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Assert.assertEquals(url.toExternalForm(), filterResult);",
+          "type": "ADD",
+          "lineNo": 66
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(<unknown>,java.lang.String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.net.URL url"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.net.URL.toExternalForm()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String filterResult"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Delete",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "null",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Invocation",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "toExternalForm",
+          "childCount": 1
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        66
+      ]
+    },
+    "aCommitTime": 1648461804,
+    "ID": "apache/stormcrawler:28",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.proxy.SingleProxyManagerTest.testSimpleProxyManager()",
+    "bSource": {
+      "startLine": 28,
+      "code": "@Test\n    public void testSimpleProxyManager() throws RuntimeException {\n        Config config = new Config();\n        config.put(\"http.proxy.host\", \"example.com\");\n        config.put(\"http.proxy.type\", \"HTTP\");\n        config.put(\"http.proxy.port\", 8080);\n        config.put(\"http.proxy.user\", \"user1\");\n        config.put(\"http.proxy.pass\", \"pass1\");\n\n        SingleProxyManager pm = new SingleProxyManager();\n        pm.configure(config);\n\n        SCProxy proxy = pm.getProxy();\n\n        Assert.assertEquals(proxy.getProtocol(), \"http\");\n        Assert.assertEquals(proxy.getAddress(), \"example.com\");\n        Assert.assertEquals(proxy.getPort(), \"8080\");\n        Assert.assertEquals(proxy.getUsername(), \"user1\");\n        Assert.assertEquals(proxy.getPassword(), \"pass1\");\n\n        Assert.assertEquals(proxy.toString(), \"http://user1:pass1@example.com:8080\");\n    }"
+    },
+    "aSource": {
+      "startLine": 28,
+      "code": "@Test\n    public void testSimpleProxyManager() throws RuntimeException {\n        Config config = new Config();\n        config.put(\"http.proxy.host\", \"example.com\");\n        config.put(\"http.proxy.type\", \"HTTP\");\n        config.put(\"http.proxy.port\", 8080);\n        config.put(\"http.proxy.user\", \"user1\");\n        config.put(\"http.proxy.pass\", \"pass1\");\n\n        SingleProxyManager pm = new SingleProxyManager();\n        pm.configure(config);\n\n        SCProxy proxy = pm.getProxy(null);\n\n        Assert.assertEquals(proxy.getProtocol(), \"http\");\n        Assert.assertEquals(proxy.getAddress(), \"example.com\");\n        Assert.assertEquals(proxy.getPort(), \"8080\");\n        Assert.assertEquals(proxy.getUsername(), \"user1\");\n        Assert.assertEquals(proxy.getPassword(), \"pass1\");\n\n        Assert.assertEquals(proxy.toString(), \"http://user1:pass1@example.com:8080\");\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/proxy/SingleProxyManagerTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/proxy/SingleProxyManagerTest.java",
+    "bCommit": "73f3a17f",
+    "aCommit": "092afdb6",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "SCProxy proxy = pm.getProxy();",
+          "type": "DELETE",
+          "lineNo": 40
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "SCProxy proxy = pm.getProxy(null);",
+          "type": "ADD",
+          "lineNo": 40
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy proxy"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.proxy.SingleProxyManager.getProxy()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.proxy.SingleProxyManager pm"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.SingleProxyManager.getProxy()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy proxy"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.proxy.SingleProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.proxy.SingleProxyManager pm"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.SingleProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Insert",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "LocalVariable",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "null",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        40
+      ]
+    },
+    "aCommitTime": 1626339034,
+    "ID": "apache/stormcrawler:1",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.proxy.MultiProxyManagerTest.testGetRandom()",
+    "bSource": {
+      "startLine": 80,
+      "code": "@Test\n    public void testGetRandom() {\n        String[] proxyStrings = {\n                \"http://example.com:8080\",\n                \"https://example.com:8080\",\n                \"http://user1:pass1@example.com:8080\",\n                \"sock5://user1:pass1@example.com:8080\",\n                \"http://example.com:80\",\n                \"sock5://example.com:64000\",\n        };\n\n        MultiProxyManager pm = new MultiProxyManager();\n        pm.configure(MultiProxyManager.ProxyRotation.RANDOM, proxyStrings);\n\n        for (int i = 0; i < 1000; i++) {\n            SCProxy proxy = pm.getProxy();\n            Assert.assertTrue(proxy.toString().length() > 0);\n        }\n    }"
+    },
+    "aSource": {
+      "startLine": 80,
+      "code": "@Test\n    public void testGetRandom() {\n        String[] proxyStrings = {\n                \"http://example.com:8080\",\n                \"https://example.com:8080\",\n                \"http://user1:pass1@example.com:8080\",\n                \"sock5://user1:pass1@example.com:8080\",\n                \"http://example.com:80\",\n                \"sock5://example.com:64000\",\n        };\n\n        MultiProxyManager pm = new MultiProxyManager();\n        pm.configure(MultiProxyManager.ProxyRotation.RANDOM, proxyStrings);\n\n        for (int i = 0; i < 1000; i++) {\n            SCProxy proxy = pm.getProxy(null);\n            Assert.assertTrue(proxy.toString().length() > 0);\n        }\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/proxy/MultiProxyManagerTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/proxy/MultiProxyManagerTest.java",
+    "bCommit": "73f3a17f",
+    "aCommit": "092afdb6",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "SCProxy proxy = pm.getProxy();",
+          "type": "DELETE",
+          "lineNo": 95
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "SCProxy proxy = pm.getProxy(null);",
+          "type": "ADD",
+          "lineNo": 95
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy proxy"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.proxy.MultiProxyManager.getProxy()"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.proxy.MultiProxyManager pm"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.MultiProxyManager.getProxy()"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy proxy"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.SCProxy"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.proxy.MultiProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.proxy.MultiProxyManager pm"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.proxy.MultiProxyManager.getProxy(Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "<nulltype> 'null'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Insert",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "LocalVariable",
+          "For",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "null",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        95
+      ]
+    },
+    "aCommitTime": 1626339034,
+    "ID": "apache/stormcrawler:2",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.persistence.AdaptiveSchedulerTest.testSchedule()",
+    "bSource": {
+      "startLine": 80,
+      "code": "@Test\n    public void testSchedule() throws MalformedURLException {\n        Scheduler scheduler = new AdaptiveScheduler();\n        scheduler.init(getConf());\n\n        Metadata metadata = new Metadata();\n        metadata.addValue(\"fetch.statusCode\", \"200\");\n        metadata.addValue(AdaptiveScheduler.SIGNATURE_KEY, md5sumEmptyContent);\n        Date nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        Instant firstFetch = DateUtils\n                .round(Calendar.getInstance().getTime(), Calendar.SECOND)\n                .toInstant();\n\n        /* verify initial fetch interval and last-modified time */\n        String lastModified = metadata.getFirstValue(HttpHeaders.LAST_MODIFIED);\n        Assert.assertNotNull(lastModified);\n        Instant lastModifiedTime = DateUtils.round(\n                GregorianCalendar.from(DateTimeFormatter.ISO_OFFSET_DATE_TIME\n                        .parse(lastModified, ZonedDateTime::from)),\n                Calendar.SECOND).toInstant();\n        Assert.assertEquals(firstFetch, lastModifiedTime);\n        String fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* initial interval is the default interval */\n        Assert.assertEquals(5, Integer.parseInt(fetchInterval));\n\n        /* test with signature not modified */\n        metadata.addValue(AdaptiveScheduler.SIGNATURE_OLD_KEY, md5sumEmptyContent);\n        nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* interval should be bigger than initial interval */\n        int fi1 = Integer.parseInt(fetchInterval);\n        Assert.assertTrue(5 < fi1);\n        /* last-modified time should be unchanged */\n        Assert.assertEquals(lastModified, metadata.getFirstValue(HttpHeaders.LAST_MODIFIED));\n\n        /* test with HTTP 304 \"not modified\" */\n        metadata.setValue(\"fetch.statusCode\", \"304\");\n        nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* interval should be bigger than initial interval and interval from last step */\n        int fi2 = Integer.parseInt(fetchInterval);\n        Assert.assertTrue(5 < fi2);\n        Assert.assertTrue(fi1 < fi2);\n        /* last-modified time should be unchanged */\n        Assert.assertEquals(lastModified, metadata.getFirstValue(HttpHeaders.LAST_MODIFIED));\n\n        /* test with a changed signature */\n        metadata.setValue(\"fetch.statusCode\", \"200\");\n        metadata.addValue(AdaptiveScheduler.SIGNATURE_KEY, md5sumSpaceContent);\n        nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        Instant lastFetch = DateUtils\n                .round(Calendar.getInstance().getTime(), Calendar.SECOND)\n                .toInstant();\n        fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* interval should now shrink */\n        int fi3 = Integer.parseInt(fetchInterval);\n        Assert.assertTrue(fi2 > fi3);\n        /* last-modified time should fetch time of last fetch */\n        lastModified = metadata.getFirstValue(HttpHeaders.LAST_MODIFIED);\n        Assert.assertNotNull(lastModified);\n        lastModifiedTime = DateUtils.round(\n                GregorianCalendar.from(DateTimeFormatter.ISO_OFFSET_DATE_TIME\n                        .parse(lastModified, ZonedDateTime::from)),\n                Calendar.SECOND).toInstant();\n        Assert.assertEquals(lastFetch, lastModifiedTime);\n    }"
+    },
+    "aSource": {
+      "startLine": 81,
+      "code": "@Test\n    public void testSchedule() throws MalformedURLException {\n        Scheduler scheduler = new AdaptiveScheduler();\n        scheduler.init(getConf());\n\n        Metadata metadata = new Metadata();\n        metadata.addValue(\"fetch.statusCode\", \"200\");\n        metadata.addValue(AdaptiveScheduler.SIGNATURE_KEY, md5sumEmptyContent);\n        Optional<Date> nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        Instant firstFetch = DateUtils\n                .round(Calendar.getInstance().getTime(), Calendar.SECOND)\n                .toInstant();\n\n        /* verify initial fetch interval and last-modified time */\n        String lastModified = metadata.getFirstValue(HttpHeaders.LAST_MODIFIED);\n        Assert.assertNotNull(lastModified);\n        Instant lastModifiedTime = DateUtils.round(\n                GregorianCalendar.from(DateTimeFormatter.ISO_OFFSET_DATE_TIME\n                        .parse(lastModified, ZonedDateTime::from)),\n                Calendar.SECOND).toInstant();\n        Assert.assertEquals(firstFetch, lastModifiedTime);\n        String fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* initial interval is the default interval */\n        Assert.assertEquals(5, Integer.parseInt(fetchInterval));\n\n        /* test with signature not modified */\n        metadata.addValue(AdaptiveScheduler.SIGNATURE_OLD_KEY, md5sumEmptyContent);\n        nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* interval should be bigger than initial interval */\n        int fi1 = Integer.parseInt(fetchInterval);\n        Assert.assertTrue(5 < fi1);\n        /* last-modified time should be unchanged */\n        Assert.assertEquals(lastModified, metadata.getFirstValue(HttpHeaders.LAST_MODIFIED));\n\n        /* test with HTTP 304 \"not modified\" */\n        metadata.setValue(\"fetch.statusCode\", \"304\");\n        nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* interval should be bigger than initial interval and interval from last step */\n        int fi2 = Integer.parseInt(fetchInterval);\n        Assert.assertTrue(5 < fi2);\n        Assert.assertTrue(fi1 < fi2);\n        /* last-modified time should be unchanged */\n        Assert.assertEquals(lastModified, metadata.getFirstValue(HttpHeaders.LAST_MODIFIED));\n\n        /* test with a changed signature */\n        metadata.setValue(\"fetch.statusCode\", \"200\");\n        metadata.addValue(AdaptiveScheduler.SIGNATURE_KEY, md5sumSpaceContent);\n        nextFetch = scheduler.schedule(Status.FETCHED, metadata);\n        Instant lastFetch = DateUtils\n                .round(Calendar.getInstance().getTime(), Calendar.SECOND)\n                .toInstant();\n        fetchInterval = metadata.getFirstValue(AdaptiveScheduler.FETCH_INTERVAL_KEY);\n        Assert.assertNotNull(fetchInterval);\n        /* interval should now shrink */\n        int fi3 = Integer.parseInt(fetchInterval);\n        Assert.assertTrue(fi2 > fi3);\n        /* last-modified time should fetch time of last fetch */\n        lastModified = metadata.getFirstValue(HttpHeaders.LAST_MODIFIED);\n        Assert.assertNotNull(lastModified);\n        lastModifiedTime = DateUtils.round(\n                GregorianCalendar.from(DateTimeFormatter.ISO_OFFSET_DATE_TIME\n                        .parse(lastModified, ZonedDateTime::from)),\n                Calendar.SECOND).toInstant();\n        Assert.assertEquals(lastFetch, lastModifiedTime);\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/persistence/AdaptiveSchedulerTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/persistence/AdaptiveSchedulerTest.java",
+    "bCommit": "2d4ed3d2",
+    "aCommit": "32b07e45",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "Date nextFetch = scheduler.schedule(Status.FETCHED, metadata);",
+          "type": "DELETE",
+          "lineNo": 88
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Optional<Date> nextFetch = scheduler.schedule(Status.FETCHED, metadata);",
+          "type": "ADD",
+          "lineNo": 89
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "java.util.Date nextFetch"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.Date"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.persistence.Scheduler.schedule(Status,Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.persistence.Scheduler scheduler"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.persistence.Scheduler.schedule(Status,Metadata)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "com.digitalpebble.stormcrawler.persistence.Status FETCHED"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "com.digitalpebble.stormcrawler.persistence.Status"
+        },
+        {
+          "type": "CtFieldReference",
+          "value": "com.digitalpebble.stormcrawler.persistence.Status FETCHED"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.Metadata metadata"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "java.util.Optional nextFetch"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.Optional"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.Date"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.persistence.Scheduler.schedule(Status,Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.persistence.Scheduler scheduler"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.persistence.Scheduler.schedule(Status,Metadata)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "com.digitalpebble.stormcrawler.persistence.Status FETCHED"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "com.digitalpebble.stormcrawler.persistence.Status"
+        },
+        {
+          "type": "CtFieldReference",
+          "value": "com.digitalpebble.stormcrawler.persistence.Status FETCHED"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.stormcrawler.Metadata metadata"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "VARIABLE_TYPE",
+        "parents": [
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "java.util.Date",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "java.util.Optional",
+          "childCount": 1
+        }
+      }
+    ],
+    "refactorings": [
+      "CHANGE_VARIABLE_TYPE"
+    ],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        89,
+        109,
+        120,
+        133
+      ]
+    },
+    "aCommitTime": 1617012448,
+    "ID": "apache/stormcrawler:4",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.util.RefreshTagTest.testExtractRefreshURL()",
+    "bSource": {
+      "startLine": 33,
+      "code": "@Test\n    public void testExtractRefreshURL() throws MalformedURLException,\n            IOException {\n        String expected = \"http://www.example.com/\";\n\n        String[] htmlStrings = new String[] {\n                \"<html><head><META http-equiv=\\\"refresh\\\" content=\\\"0; URL=http://www.example.com/\\\"></head><body>Lorem ipsum.</body></html>\",\n                \"<html><head><META http-equiv=\\\"refresh\\\" content=\\\"0;URL=http://www.example.com/\\\"></head><body>Lorem ipsum.</body></html>\", };\n\n        for (String htmlString : htmlStrings) {\n            Document doc = Jsoup.parseBodyFragment(htmlString);\n            DocumentFragment fragment = JSoupDOMBuilder.jsoup2HTML(doc);\n            String redirection = RefreshTag.extractRefreshURL(fragment);\n            Assert.assertEquals(expected, redirection);\n        }\n    }"
+    },
+    "aSource": {
+      "startLine": 33,
+      "code": "@Test\n    public void testExtractRefreshURL() throws MalformedURLException,\n            IOException {\n        String expected = \"http://www.example.com/\";\n\n        String[] htmlStrings = new String[] {\n                \"<html><head><META http-equiv=\\\"refresh\\\" content=\\\"0; URL=http://www.example.com/\\\"></head><body>Lorem ipsum.</body></html>\",\n                \"<html><head><META http-equiv=\\\"refresh\\\" content=\\\"0;URL=http://www.example.com/\\\"></head><body>Lorem ipsum.</body></html>\", };\n\n        for (String htmlString : htmlStrings) {\n            Document doc = Jsoup.parseBodyFragment(htmlString);\n            DocumentFragment fragment = DocumentFragmentBuilder.fromJsoup(doc);\n            String redirection = RefreshTag.extractRefreshURL(fragment);\n            Assert.assertEquals(expected, redirection);\n        }\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/util/RefreshTagTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/util/RefreshTagTest.java",
+    "bCommit": "09dcd31f",
+    "aCommit": "8d123c49",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "DocumentFragment fragment = JSoupDOMBuilder.jsoup2HTML(doc);",
+          "type": "DELETE",
+          "lineNo": 44
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "DocumentFragment fragment = DocumentFragmentBuilder.fromJsoup(doc);",
+          "type": "ADD",
+          "lineNo": 44
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "org.w3c.dom.DocumentFragment fragment"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "org.w3c.dom.DocumentFragment"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.parse.JSoupDOMBuilder.jsoup2HTML(Document)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "com.digitalpebble.stormcrawler.parse.JSoupDOMBuilder"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.parse.JSoupDOMBuilder.jsoup2HTML(Document)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.jsoup.nodes.Document doc"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "org.w3c.dom.DocumentFragment fragment"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "org.w3c.dom.DocumentFragment"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.stormcrawler.parse.DocumentFragmentBuilder.fromJsoup(Document)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "com.digitalpebble.stormcrawler.parse.DocumentFragmentBuilder"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.stormcrawler.parse.DocumentFragmentBuilder.fromJsoup(Document)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "org.jsoup.nodes.Document doc"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Invocation",
+        "parents": [
+          "LocalVariable",
+          "ForEach",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "jsoup2HTML",
+          "childCount": 2
+        },
+        "dstNode": {
+          "label": "fromJsoup",
+          "childCount": 2
+        }
+      },
+      {
+        "type": "Update",
+        "nodeType": "TypeAccess",
+        "parents": [
+          "Invocation",
+          "LocalVariable",
+          "ForEach",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "com.digitalpebble.stormcrawler.parse.JSoupDOMBuilder",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "com.digitalpebble.stormcrawler.parse.DocumentFragmentBuilder",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        44
+      ]
+    },
+    "aCommitTime": 1542448201,
+    "ID": "apache/stormcrawler:7",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.indexer.BasicIndexingTest.testFilterMetadata()",
+    "bSource": {
+      "startLine": 185,
+      "code": "@Test\n    public void testFilterMetadata() throws Exception {\n        Map config = new HashMap();\n        config.put(AbstractIndexerBolt.urlFieldParamName, \"url\");\n\n        final PersistentVector vector = PersistentVector.create(\n                \"parse.title=title\", \"parse.keywords=keywords\");\n\n        config.put(AbstractIndexerBolt.metadata2fieldParamName, vector);\n\n        prepareIndexerBolt(config);\n\n        Metadata metadata = new Metadata();\n        metadata.setValue(\"parse.title\", \"This is the title\");\n        metadata.setValue(\"parse.keywords\", \"keyword1, keyword2, keyword3\");\n        metadata.setValue(\"parse.description\", \"This is the description\");\n\n        index(URL, metadata);\n        Map<String, String> fields = ((DummyIndexer) bolt).returnFields();\n\n        Assert.assertArrayEquals(\n                \"Only the mapped metadata attributes should be indexed\",\n                new String[] { \"keywords\", \"title\", \"url\" }, new TreeSet<>(\n                        fields.keySet()).toArray());\n    }"
+    },
+    "aSource": {
+      "startLine": 185,
+      "code": "@Test\n    public void testFilterMetadata() throws Exception {\n        Map config = new HashMap();\n        config.put(AbstractIndexerBolt.urlFieldParamName, \"url\");\n\n        final List vector = new ArrayList();\n        vector.add(\"parse.title=title\");\n        vector.add(\"parse.keywords=keywords\");\n\n        config.put(AbstractIndexerBolt.metadata2fieldParamName, vector);\n\n        prepareIndexerBolt(config);\n\n        Metadata metadata = new Metadata();\n        metadata.setValue(\"parse.title\", \"This is the title\");\n        metadata.setValue(\"parse.keywords\", \"keyword1, keyword2, keyword3\");\n        metadata.setValue(\"parse.description\", \"This is the description\");\n\n        index(URL, metadata);\n        Map<String, String> fields = ((DummyIndexer) bolt).returnFields();\n\n        Assert.assertArrayEquals(\n                \"Only the mapped metadata attributes should be indexed\",\n                new String[] { \"keywords\", \"title\", \"url\" }, new TreeSet<>(\n                        fields.keySet()).toArray());\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/indexer/BasicIndexingTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/indexer/BasicIndexingTest.java",
+    "bCommit": "a4dc65ce",
+    "aCommit": "40612a35",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "final PersistentVector vector = PersistentVector.create(",
+          "type": "DELETE",
+          "lineNo": 190
+        },
+        {
+          "line": "\"parse.title=title\", \"parse.keywords=keywords\");",
+          "type": "DELETE",
+          "lineNo": 191
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "final List vector = new ArrayList();",
+          "type": "ADD",
+          "lineNo": 190
+        },
+        {
+          "line": "vector.add(\"parse.title=title\");",
+          "type": "ADD",
+          "lineNo": 191
+        },
+        {
+          "line": "vector.add(\"parse.keywords=keywords\");",
+          "type": "ADD",
+          "lineNo": 192
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "clojure.lang.PersistentVector vector"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "clojure.lang.PersistentVector"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "create(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "clojure.lang.PersistentVector"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "create(java.lang.String,java.lang.String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'parse.title=title'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'parse.keywords=keywords'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "java.util.List vector"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.List"
+        },
+        {
+          "type": "CtConstructorCall",
+          "value": "java.util.ArrayList.ArrayList()"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.ArrayList"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.add(Object)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.List vector"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.add(Object)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'parse.title=title'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.List.add(Object)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.List vector"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.List.add(Object)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'parse.keywords=keywords'"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "VARIABLE_TYPE",
+        "parents": [
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "clojure.lang.PersistentVector",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "java.util.List",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Delete",
+        "nodeType": "LocalVariable",
+        "parents": [
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "vector",
+          "childCount": 3
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "LocalVariable",
+        "parents": [
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "vector",
+          "childCount": 3
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Invocation",
+        "parents": [
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "add",
+          "childCount": 2
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Invocation",
+        "parents": [
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "add",
+          "childCount": 2
+        }
+      },
+      {
+        "type": "Move",
+        "nodeType": "VARIABLE_TYPE",
+        "parents": [
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "clojure.lang.PersistentVector",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "java.util.List",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Move",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"parse.title=title\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"parse.title=title\"",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Move",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "LocalVariable",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "\"parse.keywords=keywords\"",
+          "childCount": 0
+        },
+        "dstNode": {
+          "label": "\"parse.keywords=keywords\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [
+      "CHANGE_VARIABLE_TYPE"
+    ],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        190
+      ]
+    },
+    "aCommitTime": 1540212880,
+    "ID": "apache/stormcrawler:5",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.stormcrawler.persistence.DefaultSchedulerTest.testNever()",
+    "bSource": {
+      "startLine": 51,
+      "code": "@Test\n    public void testNever() throws MalformedURLException {\n        Map<String, Object> stormConf = new HashMap<>();\n        stormConf.put(\"fetchInterval.error\", -1);\n        DefaultScheduler scheduler = new DefaultScheduler();\n        scheduler.init(stormConf);\n\n        Metadata metadata = new Metadata();\n        Date nextFetch = scheduler.schedule(Status.ERROR, metadata);\n\n        Date NEVER = new Date(Long.MAX_VALUE);\n        Assert.assertEquals(NEVER, nextFetch);\n    }"
+    },
+    "aSource": {
+      "startLine": 51,
+      "code": "@Test\n    public void testNever() throws MalformedURLException {\n        Map<String, Object> stormConf = new HashMap<>();\n        stormConf.put(\"fetchInterval.error\", -1);\n        DefaultScheduler scheduler = new DefaultScheduler();\n        scheduler.init(stormConf);\n\n        Metadata metadata = new Metadata();\n        Date nextFetch = scheduler.schedule(Status.ERROR, metadata);\n\n        Assert.assertEquals(DefaultScheduler.NEVER, nextFetch);\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/stormcrawler/persistence/DefaultSchedulerTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/stormcrawler/persistence/DefaultSchedulerTest.java",
+    "bCommit": "f1572b20",
+    "aCommit": "ad4578b4",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "Date NEVER = new Date(Long.MAX_VALUE);",
+          "type": "DELETE",
+          "lineNo": 61
+        },
+        {
+          "line": "Assert.assertEquals(NEVER, nextFetch);",
+          "type": "DELETE",
+          "lineNo": 62
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Assert.assertEquals(DefaultScheduler.NEVER, nextFetch);",
+          "type": "ADD",
+          "lineNo": 61
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "java.util.Date NEVER"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.Date"
+        },
+        {
+          "type": "CtConstructorCall",
+          "value": "java.util.Date.Date(long)"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.Date"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "long MAX_VALUE"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "java.lang.Long"
+        },
+        {
+          "type": "CtFieldReference",
+          "value": "long MAX_VALUE"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(java.util.Date,java.util.Date)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(java.util.Date,java.util.Date)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.Date NEVER"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.Date nextFetch"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertEquals(java.util.Date,java.util.Date)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertEquals(java.util.Date,java.util.Date)"
+        },
+        {
+          "type": "CtFieldRead",
+          "value": "java.util.Date NEVER"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "com.digitalpebble.stormcrawler.persistence.DefaultScheduler"
+        },
+        {
+          "type": "CtFieldReference",
+          "value": "java.util.Date NEVER"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.Date nextFetch"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Delete",
+        "nodeType": "LocalVariable",
+        "parents": [
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "NEVER",
+          "childCount": 2
+        }
+      },
+      {
+        "type": "Delete",
+        "nodeType": "VariableRead",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "NEVER",
+          "childCount": 0
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "TypeAccess",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "DefaultScheduler.NEVER",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        62
+      ]
+    },
+    "aCommitTime": 1474544143,
+    "ID": "apache/stormcrawler:9",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.storm.crawler.parse.filter.SubDocumentsFilterTest.testSitemapSubdocuments()",
+    "bSource": {
+      "startLine": 37,
+      "code": "@Test\n    public void testSitemapSubdocuments() throws IOException {\n        prepareParserBolt(\"test.subdocfilter.json\");\n\n        Metadata metadata = new Metadata();\n\n        parse(\"http://www.digitalpebble.com/sitemap.xml\",\n                \"digitalpebble.sitemap.xml\", metadata);\n\n        Assert.assertEquals(6, output.getEmitted().size());\n    }"
+    },
+    "aSource": {
+      "startLine": 39,
+      "code": "@Test\n    public void testSitemapSubdocuments() throws IOException {\n        Map config = new HashMap();\n        config.put(\"detect.mimetype\", false);\n        prepareParserBolt(\"test.subdocfilter.json\", config);\n\n        Metadata metadata = new Metadata();\n\n        parse(\"http://www.digitalpebble.com/sitemap.xml\",\n                \"digitalpebble.sitemap.xml\", metadata);\n\n        Assert.assertEquals(6, output.getEmitted().size());\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/storm/crawler/parse/filter/SubDocumentsFilterTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/storm/crawler/parse/filter/SubDocumentsFilterTest.java",
+    "bCommit": "cdfcd35c",
+    "aCommit": "0c189869",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "prepareParserBolt(\"test.subdocfilter.json\");",
+          "type": "DELETE",
+          "lineNo": 39
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Map config = new HashMap();",
+          "type": "ADD",
+          "lineNo": 41
+        },
+        {
+          "line": "config.put(\"detect.mimetype\", false);",
+          "type": "ADD",
+          "lineNo": 42
+        },
+        {
+          "line": "prepareParserBolt(\"test.subdocfilter.json\", config);",
+          "type": "ADD",
+          "lineNo": 43
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.storm.crawler.parse.filter.ParsingTester.prepareParserBolt(String)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.storm.crawler.parse.filter.ParsingTester.prepareParserBolt(String)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'test.subdocfilter.json'"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "java.util.Map config"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.Map"
+        },
+        {
+          "type": "CtConstructorCall",
+          "value": "java.util.HashMap.HashMap()"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "java.util.HashMap"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "java.util.Map.put(Object,Object)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.Map config"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "java.util.Map.put(Object,Object)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'detect.mimetype'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "boolean 'false'"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.storm.crawler.parse.filter.ParsingTester.prepareParserBolt(String,Map)"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.storm.crawler.parse.filter.ParsingTester.prepareParserBolt(String,Map)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'test.subdocfilter.json'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.util.Map config"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Insert",
+        "nodeType": "LocalVariable",
+        "parents": [
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "config",
+          "childCount": 2
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "Invocation",
+        "parents": [
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "put",
+          "childCount": 3
+        }
+      },
+      {
+        "type": "Insert",
+        "nodeType": "VariableRead",
+        "parents": [
+          "Invocation",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "config",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        48
+      ]
+    },
+    "aCommitTime": 1466680717,
+    "ID": "apache/stormcrawler:0",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.storm.crawler.util.MetadataTransferTest.testTransfer()",
+    "bSource": {
+      "startLine": 29,
+      "code": "@Test\n    public void testTransfer() throws MalformedURLException {\n        Map<String, Object> conf = new HashMap<String, Object>();\n        conf.put(MetadataTransfer.trackDepthParamName, true);\n        MetadataTransfer mdt = new MetadataTransfer(conf);\n        Metadata parentMD = new Metadata();\n        Metadata outlinkMD = mdt.getMetaForOutlink(\"http://www.example.com\",\n                parentMD);\n        // test the value of track seed and depth\n        Assert.assertEquals(\"1\",\n                outlinkMD.getFirstValue(MetadataTransfer.depthKeyName));\n        String[] urlpath = outlinkMD.getValues(MetadataTransfer.urlPathKeyName);\n        Assert.assertEquals(1, urlpath.length);\n    }"
+    },
+    "aSource": {
+      "startLine": 29,
+      "code": "@Test\n    public void testTransfer() throws MalformedURLException {\n        Map<String, Object> conf = new HashMap<String, Object>();\n        conf.put(MetadataTransfer.trackDepthParamName, true);\n        MetadataTransfer mdt = new MetadataTransfer(conf);\n        Metadata parentMD = new Metadata();\n        Metadata outlinkMD = mdt.getMetaForOutlink(\n                \"http://www.example.com/outlink.html\",\n                \"http://www.example.com\", parentMD);\n        // test the value of track seed and depth\n        Assert.assertEquals(\"1\",\n                outlinkMD.getFirstValue(MetadataTransfer.depthKeyName));\n        String[] urlpath = outlinkMD.getValues(MetadataTransfer.urlPathKeyName);\n        Assert.assertEquals(1, urlpath.length);\n    }"
+    },
+    "bPath": "core/src/test/java/com/digitalpebble/storm/crawler/util/MetadataTransferTest.java",
+    "aPath": "core/src/test/java/com/digitalpebble/storm/crawler/util/MetadataTransferTest.java",
+    "bCommit": "1219db6e",
+    "aCommit": "cd954fd5",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "Metadata outlinkMD = mdt.getMetaForOutlink(\"http://www.example.com\",",
+          "type": "DELETE",
+          "lineNo": 35
+        },
+        {
+          "line": "parentMD);",
+          "type": "DELETE",
+          "lineNo": 36
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Metadata outlinkMD = mdt.getMetaForOutlink(",
+          "type": "ADD",
+          "lineNo": 35
+        },
+        {
+          "line": "\"http://www.example.com/outlink.html\",",
+          "type": "ADD",
+          "lineNo": 36
+        },
+        {
+          "line": "\"http://www.example.com\", parentMD);",
+          "type": "ADD",
+          "lineNo": 37
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "com.digitalpebble.storm.crawler.Metadata outlinkMD"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "com.digitalpebble.storm.crawler.Metadata"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.storm.crawler.util.MetadataTransfer.getMetaForOutlink(String,Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.storm.crawler.util.MetadataTransfer mdt"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.storm.crawler.util.MetadataTransfer.getMetaForOutlink(String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.example.com'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.storm.crawler.Metadata parentMD"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtLocalVariable",
+          "value": "com.digitalpebble.storm.crawler.Metadata outlinkMD"
+        },
+        {
+          "type": "CtTypeReference",
+          "value": "com.digitalpebble.storm.crawler.Metadata"
+        },
+        {
+          "type": "CtInvocation",
+          "value": "com.digitalpebble.storm.crawler.util.MetadataTransfer.getMetaForOutlink(String,String,Metadata)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.storm.crawler.util.MetadataTransfer mdt"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "com.digitalpebble.storm.crawler.util.MetadataTransfer.getMetaForOutlink(String,String,Metadata)"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.example.com/outlink.html'"
+        },
+        {
+          "type": "CtLiteral",
+          "value": "java.lang.String 'http://www.example.com'"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "com.digitalpebble.storm.crawler.Metadata parentMD"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Insert",
+        "nodeType": "Literal",
+        "parents": [
+          "Invocation",
+          "LocalVariable",
+          "Method",
+          "root",
+          ""
+        ],
+        "srcNode": {
+          "label": "\"http://www.example.com/outlink.html\"",
+          "childCount": 0
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "compile_error",
+      "error_lines": [
+        35
+      ]
+    },
+    "aCommitTime": 1425466669,
+    "ID": "apache/stormcrawler:26",
+    "trivial": null
+  },
+  {
+    "name": "com.digitalpebble.storm.crawler.parse.filter.XPathFilterTest.testBasicExtraction()",
+    "bSource": {
+      "startLine": 39,
+      "code": "@Test\n    public void testBasicExtraction() throws IOException {\n\n        prepareParserBolt(\"test.parsefilters.json\");\n\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n\n        Assert.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Map<String, String[]> metadata = (Map<String, String[]>) parsedTuple\n                .get(2);\n        Assert.assertNotNull(metadata);\n        String concept = KeyValues.getValue(\"concept\", metadata);\n        // TODO should not be null : modify after underlying issue has been\n        // fixed\n        Assert.assertNull(concept);\n\n        concept = KeyValues.getValue(\"concept2\", metadata);\n        Assert.assertNotNull(concept);\n    }"
+    },
+    "aSource": {
+      "startLine": 39,
+      "code": "@Test\n    public void testBasicExtraction() throws IOException {\n\n        prepareParserBolt(\"test.parsefilters.json\");\n\n        parse(\"http://www.digitalpebble.com\", \"digitalpebble.com.html\");\n\n        Assert.assertEquals(1, output.getEmitted().size());\n        List<Object> parsedTuple = output.getEmitted().get(0);\n        Map<String, String[]> metadata = (Map<String, String[]>) parsedTuple\n                .get(2);\n        Assert.assertNotNull(metadata);\n        String concept = KeyValues.getValue(\"concept\", metadata);\n        Assert.assertNotNull(concept);\n\n        concept = KeyValues.getValue(\"concept2\", metadata);\n        Assert.assertNotNull(concept);\n    }"
+    },
+    "bPath": "src/test/java/com/digitalpebble/storm/crawler/parse/filter/XPathFilterTest.java",
+    "aPath": "src/test/java/com/digitalpebble/storm/crawler/parse/filter/XPathFilterTest.java",
+    "bCommit": "329263cc",
+    "aCommit": "0e2ac44c",
+    "hunk": {
+      "sourceChanges": [
+        {
+          "line": "// TODO should not be null : modify after underlying issue has been",
+          "type": "DELETE",
+          "lineNo": 52
+        },
+        {
+          "line": "// fixed",
+          "type": "DELETE",
+          "lineNo": 53
+        },
+        {
+          "line": "Assert.assertNull(concept);",
+          "type": "DELETE",
+          "lineNo": 54
+        }
+      ],
+      "targetChanges": [
+        {
+          "line": "Assert.assertNotNull(concept);",
+          "type": "ADD",
+          "lineNo": 52
+        }
+      ],
+      "type": "MODIFY",
+      "sourceElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertNull(java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertNull(java.lang.String)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String concept"
+        }
+      ],
+      "targetElements": [
+        {
+          "type": "CtInvocation",
+          "value": "assertNotNull(java.lang.String)"
+        },
+        {
+          "type": "CtTypeAccess",
+          "value": "org.junit.Assert"
+        },
+        {
+          "type": "CtExecutableReference",
+          "value": "assertNotNull(java.lang.String)"
+        },
+        {
+          "type": "CtVariableRead",
+          "value": "java.lang.String concept"
+        }
+      ]
+    },
+    "astActions": [
+      {
+        "type": "Update",
+        "nodeType": "Invocation",
+        "parents": [
+          "Method",
+          "root"
+        ],
+        "srcNode": {
+          "label": "assertNull",
+          "childCount": 2
+        },
+        "dstNode": {
+          "label": "assertNotNull",
+          "childCount": 2
+        }
+      }
+    ],
+    "refactorings": [],
+    "verdict": {
+      "status": "failure",
+      "error_lines": [
+        54
+      ]
+    },
+    "aCommitTime": 1421303524,
+    "ID": "apache/stormcrawler:3",
+    "trivial": null
+  }
+]
